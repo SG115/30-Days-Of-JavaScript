@@ -9,6 +9,7 @@ id = 9f34545c-92b1-409b-b218-13678c9059fb
 
 [config.relations.collections]
 rootDirectory = postman/collections
+files[] = {"id":"1513739-8463ccaf-b0c1-4faa-8aed-6f1290e8e43d","path":"Payroll API.json","metaData":{}}
 
 [config.relations.collections.metaData]
 

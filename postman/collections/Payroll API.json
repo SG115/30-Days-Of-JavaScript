@@ -1,0 +1,1494 @@
+{
+	"info": {
+		"_postman_id": "8463ccaf-b0c1-4faa-8aed-6f1290e8e43d",
+		"name": "Payroll API",
+		"description": "# 💰 Get started here\n\nThis collection is a blueprint template, demonstrating the core features of a payroll REST API that includes employees, payrolls, salaries and deductions. You can use this template as inspiration to build your custom API or extend it to work with one you've already started working on.\n\n## 🔖 How to use this template?\n\n#### Step 1: Send the requests\n\nSend the requests and view the response returned by the mock API, or check out the examples included.\n\n#### Step 2: Update the base URL\n\nSelect the collection and navigate to the “Variables” tab. Update the `base_url` variable with your API's URL.\n\n#### Step 3: Customize the requests\n\nUpdate the different parts of the requests to suit your use case, including the request body, authorization, documentation, headers, tests, and path parameters.\n\n#### Step 4: Continue building the collection\n\nCreate requests in this collection to test the new API endpoints you develop.\n\n## ℹ️ **Resources**\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Creating your first collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "1513739-8463ccaf-b0c1-4faa-8aed-6f1290e8e43d"
+	},
+	"item": [
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Get all employees",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "2e5b86da-1a96-4297-9c99-9d72a10123a2"
+							}
+						}
+					],
+					"id": "ad2a1c03-59b7-4ca1-aced-5c5ba9ee27e9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/employees",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employees"
+							]
+						},
+						"description": "Returns a list of employees with their information, such as ID, name, contact details, job title, salary and deductions."
+					},
+					"response": [
+						{
+							"id": "2e7275de-9a93-42b8-a4af-35e66ce7119f",
+							"name": "Get all employees",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/employees",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"employees"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"employees\": [\n    {\n        \"id\": \"employee1\",\n        \"name\": \"John Doe\",\n        \"email\": \"johndoe@example.com\",\n        \"jobTitle\": \"Software Engineer\",\n        \"salary\": 5000,\n        \"deductions\": [\n            {\n                \"deductionId\": \"deduction1\",\n                \"name\": \"Tax\",\n                \"amount\": 1000\n            },\n            {\n                \"deductionId\": \"deduction2\",\n                \"name\": \"Insurance\",\n                \"amount\": 500\n            }\n        ]\n    },\n    {\n        \"id\": \"employee2\",\n        \"name\": \"Jane Smith\",\n        \"email\": \"janesmith@example.com\",\n        \"jobTitle\": \"Marketing Specialist\",\n        \"salary\": 4000,\n        \"deductions\": [\n            {\n                \"deductionId\": \"deduction1\",\n                \"name\": \"Tax\",\n                \"amount\": 1000\n            },\n            {\n                \"deductionId\": \"deduction2\",\n                \"name\": \"Insurance\",\n                \"amount\": 200\n            }\n        ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an employee detail",
+					"id": "d5eb766b-97f9-4510-9346-ef383cbcdc18",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/employees/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "employee1"
+								}
+							]
+						},
+						"description": "Returns the detailed information of a specific employee identified by their ID."
+					},
+					"response": [
+						{
+							"id": "8724ebe0-78f5-403e-b5f5-a9d6adc02f5f",
+							"name": "Get an employee detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/employees/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"employees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "employee1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"employee1\",\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"jobTitle\": \"Software Engineer\",\n  \"salary\": 5000,\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"name\": \"Tax\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"name\": \"Insurance\",\n      \"amount\": 500\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create employee",
+					"id": "5513c220-347a-4cce-8702-4b260d7c8171",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Emily Johnson\",\n  \"email\": \"emilyjohnson@example.com\",\n  \"jobTitle\": \"Accountant\",\n  \"salary\": 4500,\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"name\": \"Tax\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"name\": \"Insurance\",\n      \"amount\": 500\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/employees",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employees"
+							]
+						},
+						"description": "Creates a new employee using the employee detail from the request body."
+					},
+					"response": [
+						{
+							"id": "020d15af-3ec9-412b-91c8-347ccee03efa",
+							"name": "Create employee",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Emily Johnson\",\n  \"email\": \"emilyjohnson@example.com\",\n  \"jobTitle\": \"Accountant\",\n  \"salary\": 4500,\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"name\": \"Tax\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"name\": \"Insurance\",\n      \"amount\": 500\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/employees",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"employees"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"employee3\",\n    \"name\": \"Emily Johnson\",\n    \"email\": \"emilyjohnson@example.com\",\n    \"jobTitle\": \"Accountant\",\n    \"salary\": 4500,\n    \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"name\": \"Tax\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"name\": \"Insurance\",\n      \"amount\": 500\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update employee detail",
+					"id": "8c9fcb97-1969-4436-9719-398244df4a90",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"jobTitle\": \"Senior Software Engineer\",\n  \"salary\": 6000,\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"name\": \"Tax\",\n      \"amount\": 1500\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"name\": \"Insurance\",\n      \"amount\": 500\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/employees/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "employee1"
+								}
+							]
+						},
+						"description": "Updates the employee detail identified by their ID."
+					},
+					"response": [
+						{
+							"id": "727ce66c-9457-4df3-b9ee-8cf0555f3308",
+							"name": "Update employee detail",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"jobTitle\": \"Senior Software Engineer\",\n  \"salary\": 6000,\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"name\": \"Tax\",\n      \"amount\": 1500\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"name\": \"Insurance\",\n      \"amount\": 500\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/employees/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"employees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "employee1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"employee1\",\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe@example.com\",\n    \"jobTitle\": \"Senior Software Engineer\",\n    \"salary\": 6000,\n    \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"name\": \"Tax\",\n      \"amount\": 1500\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"name\": \"Insurance\",\n      \"amount\": 500\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete employee",
+					"id": "695e6693-9c5d-4a72-948b-54a9acdbc127",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/employees/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "employee2"
+								}
+							]
+						},
+						"description": "Deletes the specific employee information and returns the employee ID of the deleted employee."
+					},
+					"response": [
+						{
+							"id": "f0e592ba-5a94-4b6e-871c-770cb71da1fc",
+							"name": "Delete employee",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/employees/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"employees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "employee2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"employee2\"\n}"
+						}
+					]
+				}
+			],
+			"id": "0293315a-bfc8-4a4a-9c7b-ce04ed555b13",
+			"description": "This folder contains the CRUD operations for employee management."
+		},
+		{
+			"name": "Payrolls",
+			"item": [
+				{
+					"name": "Get payrolls",
+					"id": "040b03c7-00a9-4048-a391-cdee54def47f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/payrolls",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"payrolls"
+							]
+						},
+						"description": "Returns a list of payrolls with details such as payroll ID, period, total amount, and any additional payroll information."
+					},
+					"response": [
+						{
+							"id": "6f001898-eb53-45c3-9ce9-668c8c4b3dfc",
+							"name": "Get payrolls",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/payrolls",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"payrolls"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"payrolls\": [\n    {\n        \"id\": \"payroll1\",\n        \"period\": \"May 2023\",\n        \"totalAmount\": 25000,\n        \"status\": \"processing\",\n        \"salaries\": [\n            {\n                \"employeeId\": \"employee1\",\n                \"amount\": 8000\n            },\n            {\n                \"employeeId\": \"employee2\",\n                \"amount\": 7000\n            }\n        ],\n        \"deductions\": [\n            {\n                \"deductionId\": \"deduction1\",\n                \"name\": \"Tax\",\n                \"amount\": 1000\n            },\n            {\n                \"deductionId\": \"deduction2\",\n                \"name\": \"Insurance\",\n                \"amount\": 500\n            }\n        ]\n    },\n    {\n        \"id\": \"payroll2\",\n        \"period\": \"April 2023\",\n        \"totalAmount\": 25000,\n        \"status\": \"completed\",\n        \"salaries\": [\n            {\n                \"employeeId\": \"employee1\",\n                \"amount\": 8000\n            },\n            {\n                \"employeeId\": \"employee2\",\n                \"amount\": 7000\n            }\n        ],\n        \"deductions\": [\n            {\n                \"deductionId\": \"deduction1\",\n                \"name\": \"Tax\",\n                \"amount\": 1000\n            },\n            {\n                \"deductionId\": \"deduction2\",\n                \"name\": \"Insurance\",\n                \"amount\": 500\n            }\n        ]\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a payroll detail",
+					"id": "693b57a5-43a7-49cc-8481-59e37deab952",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/payrolls/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"payrolls",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "payroll1"
+								}
+							]
+						},
+						"description": "Returns the detailed information of a specific payroll identified by its ID."
+					},
+					"response": [
+						{
+							"id": "be4a582c-a220-44c3-84d7-975cd7c3008a",
+							"name": "Get a payroll detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/payrolls/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"payrolls",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "payroll1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"payroll1\",\n  \"period\": \"May 2023\",\n  \"totalAmount\": 25000,\n  \"status\": \"processing\",\n  \"salaries\": [\n    {\n      \"employeeId\": \"employee1\",\n      \"amount\": 8000\n    },\n    {\n      \"employeeId\": \"employee2\",\n      \"amount\": 7000\n    }\n  ],\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"name\": \"Tax\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"name\": \"Insurance\",\n      \"amount\": 500\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create payroll",
+					"id": "f3e22d50-9f9f-4faf-95dd-652bf981a306",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"period\": \"June 2023\",\n  \"status\": \"processing\",\n  \"salaries\": [\n    {\n      \"employeeId\": \"employee1\",\n      \"amount\": 8500\n    },\n    {\n      \"employeeId\": \"employee2\",\n      \"amount\": 7500\n    }\n  ],\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"amount\": 500\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/payrolls",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"payrolls"
+							]
+						},
+						"description": "Creates a new payroll with the information from the request body."
+					},
+					"response": [
+						{
+							"id": "03a6ba6d-d7f6-4623-a262-5fb648c1fb33",
+							"name": "Create payroll",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"period\": \"June 2023\",\n  \"status\": \"processing\",\n  \"salaries\": [\n    {\n      \"employeeId\": \"employee1\",\n      \"amount\": 8500\n    },\n    {\n      \"employeeId\": \"employee2\",\n      \"amount\": 7500\n    }\n  ],\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"amount\": 500\n    }\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/payrolls",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"payrolls"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"payroll3\",\n  \"period\": \"June 2023\",\n  \"totalAmount\": 15500,\n  \"status\": \"processing\",\n  \"salaries\": [\n    {\n      \"employeeId\": \"employee1\",\n      \"amount\": 8500\n    },\n    {\n      \"employeeId\": \"employee2\",\n      \"amount\": 7500\n    }\n  ],\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"name\": \"Tax\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"name\": \"Insurance\",\n      \"amount\": 500\n    }\n  ]\n}\n"
+						}
+					]
+				},
+				{
+					"name": "Update payroll",
+					"id": "91b26e58-2756-4b71-80e2-812bc9718a50",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"period\": \"June 2023\",\n  \"status\": \"processing\",\n  \"salaries\": [\n    {\n      \"employeeId\": \"employee1\",\n      \"amount\": 9000\n    },\n    {\n      \"employeeId\": \"employee2\",\n      \"amount\": 8000\n    }\n  ],\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"amount\": 500\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/payrolls/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"payrolls",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "payroll3"
+								}
+							]
+						},
+						"description": "Updates an existing payroll identified by its ID."
+					},
+					"response": [
+						{
+							"id": "f7c1f674-b46a-4946-9c6d-f0d1e6a87b04",
+							"name": "Update payroll",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"period\": \"June 2023\",\n  \"status\": \"processing\",\n  \"salaries\": [\n    {\n      \"employeeId\": \"employee1\",\n      \"amount\": 9000\n    },\n    {\n      \"employeeId\": \"employee2\",\n      \"amount\": 8000\n    }\n  ],\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"amount\": 500\n    }\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/payrolls/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"payrolls",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "payroll3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"payroll3\",\n    \"period\": \"June 2023\",\n    \"totalAmount\": 16000,\n    \"status\": \"processing\",\n    \"salaries\": [\n        {\n            \"employeeId\": \"employee1\",\n            \"amount\": 9000\n        },\n        {\n            \"employeeId\": \"employee2\",\n            \"amount\": 8000\n        }\n    ],\n    \"deductions\": [\n        {\n            \"deductionId\": \"deduction1\",\n            \"amount\": 1000\n        },\n        {\n            \"deductionId\": \"deduction2\",\n            \"amount\": 500\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete payroll",
+					"id": "80de96c6-b6f6-409d-8458-79784fc12367",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/payrolls/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"payrolls",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "payroll3"
+								}
+							]
+						},
+						"description": "Deletes a specific payroll identified by its id and returns the payroll ID of the deleted payroll."
+					},
+					"response": [
+						{
+							"id": "fd7bfdcd-0052-4446-8aa3-817872bcbdd6",
+							"name": "Delete payroll",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/payrolls/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"payrolls",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "payroll3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"payroll3\"\n}"
+						}
+					]
+				}
+			],
+			"id": "734ccccc-57a4-4a49-95f0-172aa83b3739",
+			"description": "This folder contains CRUD operations for payrolls."
+		},
+		{
+			"name": "Salaries",
+			"item": [
+				{
+					"name": "Get all salaries",
+					"id": "4fd19ca8-c377-4acd-8058-c12b6ad0d9c3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/salaries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"salaries"
+							]
+						},
+						"description": "Returns salaries of all the employees with employee id, amount and deductions."
+					},
+					"response": [
+						{
+							"id": "6d7cb3ac-e655-4134-b49f-180938cd1eca",
+							"name": "Get all salaries",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/salaries",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"salaries"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"salaries\": [\n        {\n            \"employeeId\": \"employee1\",\n            \"amount\": 8500,\n            \"deductions\": [\n                {\n                    \"deductionId\": \"deduction1\",\n                    \"name\": \"Tax\",\n                    \"amount\": 1000\n                },\n                {\n                    \"deductionId\": \"deduction2\",\n                    \"name\": \"Insurance\",\n                    \"amount\": 500\n                }\n            ]\n        },\n        {\n            \"employeeId\": \"employee2\",\n            \"amount\": 9000,\n            \"deductions\": [\n                {\n                    \"deductionId\": \"deduction1\",\n                    \"name\": \"Tax\",\n                    \"amount\": 1000\n                },\n                {\n                    \"deductionId\": \"deduction2\",\n                    \"name\": \"Insurance\",\n                    \"amount\": 500\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an employee salary",
+					"id": "0fdc60ee-2610-4c37-af77-01f0d626885f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/salaries/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"salaries",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "employee1"
+								}
+							]
+						},
+						"description": "Returns the salary of a specific employee identified by the employee ID."
+					},
+					"response": [
+						{
+							"id": "5dc3c733-ee18-4e8b-957d-bdc6ef76a2e8",
+							"name": "Get an employee salary",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/salaries/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"salaries",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "employee1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employeeId\": \"employee1\",\n    \"amount\": 8500,\n    \"deductions\": [\n        {\n            \"deductionId\": \"deduction1\",\n            \"name\": \"Tax\",\n            \"amount\": 1000\n        },\n        {\n            \"deductionId\": \"deduction2\",\n            \"name\": \"Insurance\",\n            \"amount\": 500\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create salary",
+					"id": "4ebe2c8f-616d-45c2-b17d-5ed92a8deda2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"employeeId\": \"employee4\",\n  \"amount\": 5500,\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"amount\": 500\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/salaries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"salaries"
+							]
+						},
+						"description": "Creates a new salary for the employee using the details from the request body."
+					},
+					"response": [
+						{
+							"id": "425b722c-9293-4b58-ae79-f9db9b526288",
+							"name": "Create salary",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"employeeId\": \"employee4\",\n  \"amount\": 5500,\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"amount\": 500\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/salaries",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"salaries"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employeeId\": \"employee4\",\n    \"amount\": 5500,\n    \"deductions\": [\n        {\n            \"deductionId\": \"deduction1\",\n            \"name\": \"Tax\",\n            \"amount\": 1000\n        },\n        {\n            \"deductionId\": \"deduction2\",\n            \"name\": \"Insurance\",\n            \"amount\": 500\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an employee salary",
+					"id": "12424f84-2b0d-4d92-80a6-41e76cc61d56",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 10000,\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"amount\": 500\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/salaries/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"salaries",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "employee1"
+								}
+							]
+						},
+						"description": "Updates the salary of the existing employee identified by the employee ID."
+					},
+					"response": [
+						{
+							"id": "07c6126f-4643-4f89-904c-f980ffd85ede",
+							"name": "Update an employee salary",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 10000,\n  \"deductions\": [\n    {\n      \"deductionId\": \"deduction1\",\n      \"amount\": 1000\n    },\n    {\n      \"deductionId\": \"deduction2\",\n      \"amount\": 500\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/salaries/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"salaries",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "employee1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employeeId\": \"employee1\",\n    \"amount\": 10000,\n    \"deductions\": [\n        {\n            \"deductionId\": \"deduction1\",\n            \"name\": \"Tax\",\n            \"amount\": 1000\n        },\n        {\n            \"deductionId\": \"deduction2\",\n            \"name\": \"Insurance\",\n            \"amount\": 500\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete an employee salary",
+					"id": "5b5829a4-aaf2-4ed9-a76a-f4107544023c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/salaries/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"salaries",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "employee1"
+								}
+							]
+						},
+						"description": "Deletes the salary of the existing employee identified by the employee ID."
+					},
+					"response": [
+						{
+							"id": "902e59f1-9cd9-4f61-85e9-82e2faf6cf0d",
+							"name": "Delete an employee salary",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/salaries/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"salaries",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "employee1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"employee1\"\n}"
+						}
+					]
+				}
+			],
+			"id": "e7d16cf0-3263-4f88-a3ed-afa12e34a6e8",
+			"description": "This folder contains CRUD operations for salaries."
+		},
+		{
+			"name": "Deductions",
+			"item": [
+				{
+					"name": "Get all deductions",
+					"id": "4942bbb8-639b-4f89-90ab-928c10d23a65",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/deductions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deductions"
+							]
+						},
+						"description": "Returns the information about all the deductions, including deduction id, name and amount."
+					},
+					"response": [
+						{
+							"id": "04d3e1bc-ca81-46d6-a465-552a45e6ed03",
+							"name": "Get all deductions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/deductions",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deductions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"deductions\": [\n        {\n            \"deductionId\": \"deduction1\",\n            \"name\": \"Tax\",\n            \"amount\": 1000\n        },\n        {\n            \"deductionId\": \"deduction2\",\n            \"name\": \"Tax\",\n            \"amount\": 2000\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a deduction detail",
+					"id": "78fad237-b123-4c0a-931e-b3404dc9f764",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/deductions/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deductions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "deduction1"
+								}
+							]
+						},
+						"description": "Returns the information about a specific deduction identified by the deduction ID."
+					},
+					"response": [
+						{
+							"id": "7e7ba33d-6a0b-4e35-ab7b-4d42ce0d8152",
+							"name": "Get a deduction detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/deductions/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deductions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "deduction1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"deductionId\": \"deduction1\",\n  \"name\": \"Tax\",\n  \"amount\": 1000\n}"
+						}
+					]
+				},
+				{
+					"name": "Create deduction",
+					"id": "94f743f2-eb0f-45e7-928d-7f6d50441cda",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Health Insurance\",\n  \"amount\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/deductions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deductions"
+							]
+						},
+						"description": "Creates a new deduction using the details the request body."
+					},
+					"response": [
+						{
+							"id": "f7e9f2ad-3562-4369-9edf-102f006e20c8",
+							"name": "Create deduction",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Health Insurance\",\n  \"amount\": 200\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/deductions",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deductions"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"deductionId\": \"deduction3\",\n  \"name\": \"Health Insurance\",\n  \"amount\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Update deduction",
+					"id": "d11401ad-deb1-46e6-84a7-d73f0dcb1ac0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Retirement Fund\",\n  \"amount\": 300\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/deductions/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deductions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "deduction2"
+								}
+							]
+						},
+						"description": "Updates an existing deduction identified by the deduction ID."
+					},
+					"response": [
+						{
+							"id": "d9f1cea0-f695-460c-a7c0-a569fa2bc1e6",
+							"name": "Update deduction",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Retirement Fund\",\n  \"amount\": 300\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/deductions/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deductions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "deduction2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"deductionId\": \"deduction2\",\n  \"name\": \"Retirement Fund\",\n  \"amount\": 300\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete deduction",
+					"id": "ab728ac0-c1f8-4d6a-9ee2-5f7efab4da4b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/deductions/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deductions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "deduction2"
+								}
+							]
+						},
+						"description": "Deletes a specific deduction identified by the deduction ID."
+					},
+					"response": [
+						{
+							"id": "799f9b77-30e3-4e7c-bd56-ba0022f50dc3",
+							"name": "Delete deduction",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/deductions/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deductions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "deduction2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"deduction2\"\n}"
+						}
+					]
+				}
+			],
+			"id": "ad8e5898-6113-44e8-88dd-e7e26fc2e102",
+			"description": "This folder contains the CRUD operations for deductions."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "fc63b7ee-8c11-4a4a-b35b-dd736d80d36e"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "6b358296-a813-4b60-bbb6-63042151abee"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0e0ff2b9-1b1f-45e8-94bd-97e56063652f",
+			"key": "base_url",
+			"value": "https://a404cb5b-fc3a-46d1-a8cc-6f72f08d71db.mock.pstmn.io",
+			"type": "string"
+		}
+	]
+}
